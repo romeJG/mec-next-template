@@ -22,11 +22,16 @@ use App\Http\Controllers\UserController;
 
 // Throttle request 60 request per hour
 Route::middleware(['throttle:60,3600'])->group(function () {
+    Route::get('check-connection', function () {
+        return response()->json(['status' => 'success', 'message' => 'Connection is good!'], 200);
+    });
+
     Route::post('check-email', [AuthController::class, 'checkEmailIsAdmin']);
     Route::post('send-login-otp', [AuthController::class, 'emailLoginOTP']);
     Route::post('login', [AuthController::class, 'login']);
     Route::post('login-admin', [AuthController::class, 'loginAdmin']);
     Route::post('check-password', [AuthController::class, 'checkAdminPassword']);
+    //check connection function
 });
 
 //Protected Routes (JWT-authenticated users)

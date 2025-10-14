@@ -82,3 +82,9 @@ php artisan serve
 cd ../frontend
 npm run dev
 ```
+
+11. To test the api's connection type in the browser the link below. You should see a message: "Connection is good!"
+
+```bash
+http://localhost:8000/api/check-connection
+```
