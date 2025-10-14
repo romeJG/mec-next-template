@@ -1,7 +1,5 @@
 # Mec-Template
 
-# Mec-Template
-
 A full-stack starter kit powered by **Laravel** (backend) and **Next.js** (frontend).  
 This template comes with a **preconfigured internal structure**, including:
 
