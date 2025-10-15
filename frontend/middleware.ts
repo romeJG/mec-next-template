@@ -1,4 +1,5 @@
-// middleware.ts
+import { PROTECTED_ROUTES } from "@/routes";
+
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -6,7 +7,7 @@ export function middleware(req: NextRequest) {
 	const token = req.cookies.get("jwt")?.value;
 
 	// List of routes to protect
-	const protectedRoutes = ["/dashboard", "/user-administration"];
+	const protectedRoutes = PROTECTED_ROUTES;
 
 	if (protectedRoutes.includes(req.nextUrl.pathname)) {
 		if (!token || !isTokenValid(token)) {
@@ -27,5 +28,6 @@ function isTokenValid(token: string) {
 }
 
 export const config = {
-	matcher: ["/dashboard", "/user-administration"], // match only these routes
+	// Middleware will only run on the specified routes in the array
+	matcher: PROTECTED_ROUTES,
 };
