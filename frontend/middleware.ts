@@ -1,7 +1,14 @@
-import { PROTECTED_ROUTES } from "@/protected.routes";
-
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+
+const PROTECTED_ROUTES = [
+	// Admin Routes
+	"/dashboard",
+	"/user-administration",
+
+	// Employee Routes
+	"/sample-employee-route",
+];
 
 export function middleware(req: NextRequest) {
 	const token = req.cookies.get("jwt")?.value;
@@ -14,7 +21,6 @@ export function middleware(req: NextRequest) {
 			return NextResponse.redirect(new URL("/", req.url));
 		}
 	}
-
 	return NextResponse.next();
 }
 
