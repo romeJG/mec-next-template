@@ -7,7 +7,7 @@ function CustomInput({
 	inputType = "text",
 	inputPlaceHolder = "Enter " + inputLabel,
 	inputValue,
-	setInputValue = () => {},
+	setInputValue,
 	handleSearchClick,
 	inputNotes,
 	inputLabelSize = "1rem",
@@ -208,11 +208,10 @@ function CustomInput({
 								}
 							>
 								<span
-									className={`fa-solid ${
-										isPasswordShow
-											? "fa-eye-slash"
-											: "fa-eye"
-									}`}
+									className={`fa-solid ${isPasswordShow
+										? "fa-eye-slash"
+										: "fa-eye"
+										}`}
 								></span>
 							</div>
 						</div>
@@ -251,9 +250,8 @@ function CustomInput({
 						<input
 							ref={inputRef}
 							type={inputType}
-							className={`w-full p-2 rounded-md ${
-								isError ? "error" : ""
-							}`}
+							className={`w-full p-2 rounded-md ${isError ? "error" : ""
+								}`}
 							style={{
 								fontSize: inputTextSize,
 								lineHeight: 1,
@@ -308,9 +306,8 @@ function CustomInput({
 						<input
 							ref={inputRef}
 							type={inputType}
-							className={`w-full p-2 pr-4  rounded-md ${
-								isError ? "error" : ""
-							}`}
+							className={`w-full p-2 pr-4  rounded-md ${isError ? "error" : ""
+								}`}
 							style={{
 								fontSize: inputTextSize,
 								lineHeight: 1,
@@ -526,10 +523,9 @@ function CustomInput({
 									<div className="w-[2px] min-w-[2px] h-[calc(100%-0.75rem)] bg-[var(--color-grey)] rounded-full" />
 									<div className="w-full h-full flex justify-center items-center">
 										<div
-											className={`w-8 h-8 rounded-full grid place-content-center text-center transition-all ${
-												isSearchHovered &&
+											className={`w-8 h-8 rounded-full grid place-content-center text-center transition-all ${isSearchHovered &&
 												"bg-[var(--color-grey)]"
-											}`}
+												}`}
 										>
 											<span className="fa-solid fa-magnifying-glass"></span>
 										</div>
